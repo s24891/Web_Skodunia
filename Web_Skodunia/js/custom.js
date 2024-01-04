@@ -108,3 +108,49 @@
     }
 
 
+
+  document.addEventListener("DOMContentLoaded", function () {
+  // Function to handle filter changes
+  function handleFilterChange() {
+    const selectedFilters = {};
+
+    // Loop through all checkboxes
+    document.querySelectorAll('.filter-checkbox:checked').forEach(checkbox => {
+      const category = checkbox.getAttribute('data-category');
+      const value = checkbox.value;
+
+      if (!selectedFilters[category]) {
+        selectedFilters[category] = [];
+      }
+
+      selectedFilters[category].push(value);
+    });
+
+    // Filter cars based on selected filters
+    filterCars(selectedFilters);
+  }
+
+  // Function to filter cars based on selected filters
+  function filterCars(filters) {
+  const carItems = document.querySelectorAll('.car-item');
+
+  carItems.forEach(carItem => {
+  const isBrandMatch = !filters.brand || filters.brand.includes(carItem.getAttribute('data-brand'));
+  const isBodyTypeMatch = !filters.bodyType || filters.bodyType.includes(carItem.getAttribute('data-body-type'));
+  const isTransmissionMatch = !filters.transmission || filters.transmission.includes(carItem.getAttribute('data-transmission'));
+
+  if (isBrandMatch && isBodyTypeMatch && isTransmissionMatch) {
+  carItem.style.display = 'block';
+} else {
+  carItem.style.display = 'none';
+}
+});
+}
+
+  // Attach event listener to checkboxes
+  document.querySelectorAll('.filter-checkbox').forEach(checkbox => {
+  checkbox.addEventListener('change', handleFilterChange);
+});
+});
+
+
