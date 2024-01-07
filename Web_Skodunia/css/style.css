@@ -1010,7 +1010,205 @@
     display: inline-block;
     margin-left: 40px;
   }
-  
+
+  .navbar-details-cars {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+  }
+
+  .navbar-details-cars ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: whitesmoke;
+  }
+
+  .navbar-details-cars li {
+    float: left;
+  }
+
+  .navbar-details-cars li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+
+  .navbar-details-cars li:last-child a:last-child {
+    color: #29ca8e;
+  }
+  .navbar-details-cars li:last-child a:last-child:hover {
+    background-color: #909090;
+  }
+
+  .navbar-details-cars li a:hover {
+    background-color: #29ca8e;
+  }
+
+
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding: 13rem;
+  }
+
+  .description h3 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+
+  }
+
+  .description p {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .specifications h3 {
+    font-size: 30px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .specifications p {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .gear h3 {
+    font-size: 30px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .gear p {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .pictures h3 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .price h3 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .price p {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 68%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+  }
+
+  td, th {
+    text-align: left;
+    padding: 15px;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #dddddd;
+  }
+
+  td:nth-child(odd) {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  td:nth-child(even) {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .price tr:first-child {
+    background-color: #29ca8e;
+  }
+
+  .imgbox {
+    display: grid;
+    height: 100%;
+  }
+  .picture-fit {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: auto;
+  }
+
+  .filter-menu {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-weight: bold;
+  }
+
+  .filter-category {
+    margin-right: 20px;
+  }
+
+  .filter-category label{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    margin-top: 5px;
+  }
+
+  .filter-category label:hover{
+    color: forestgreen;
+  }
+
+  .filter-checkbox {
+    width: 15px;
+    height: 15px;
+  }
+
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-group input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .filter-checkbox:checked {
+    color: #29ca8e;
+  }
+
+  .filter-btn {
+    display: block;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 30px;
+  }
+
+  .image {
+    max-width: 100%;
+    background-size: cover;
+  }
+
+
+
+
+
+
+
   .lead { font-family: "Muli"; font-weight: 300; line-height: 1.8; }
 
   .team-thumb-actions { padding: 10px; border-top: 1px solid rgba(0,0,0,.05); }

@@ -19,6 +19,7 @@
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/style.css">
 
+
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -27,7 +28,7 @@
           <div class="spinner">
 
                <span class="spinner-rotate"></span>
-               
+
           </div>
      </section>
 
@@ -65,22 +66,42 @@
           </div>
      </section>
 
+
      <section>
           <div class="container">
                <div class="text-center">
                     <h1>Samochody</h1>
+               </div>
 
-                    <br>
+               <div class="filter-menu">
+                    <div class="filter-category"> Marka:
+                         <label><input type="checkbox" class="filter-checkbox" data-category="brand" value="Porsche"> Porsche</label>
+                         <label><input type="checkbox" class="filter-checkbox" data-category="brand" value="Volkswagen"> Volkswagen</label>
+                         <label><input type="checkbox" class="filter-checkbox" data-category="brand" value="Bmw"> Bmw</label>
+                         <!-- Add more brand options as needed -->
+                    </div>
 
-                    <p class="lead"></p>
+                    <div class="filter-category"> Typ nadwozia:
+                         <label><input type="checkbox" class="filter-checkbox" data-category="bodyType" value="Coupe"> Coupe</label>
+                         <label><input type="checkbox" class="filter-checkbox" data-category="bodyType" value="Hatchback"> Hatchback</label>
+                         <label><input type="checkbox" class="filter-checkbox" data-category="bodyType" value="Sedan"> Sedan</label>
+                         <!-- Add more body type options as needed -->
+                         </div>
+                    <div class="filter-category"> Skrzynia biegów:
+                         <label><input type="checkbox" class="filter-checkbox" data-category="transmission" value="Automatic"> Automatic</label>
+                         <label><input type="checkbox" class="filter-checkbox" data-category="transmission" value="Manual"> Manual</label>
+                         <!-- Add more transmission options as needed -->
+                         </div>
                </div>
           </div>
      </section>
 
+
+
      <section class="section-background">
           <div class="container">
                <div class="row">
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 car-item" data-brand="Porsche" data-body-type="Coupe" data-transmission="Automatic">
                          <div class="courses-thumb courses-thumb-secondary">
                               <div class="courses-top">
                                    <div class="courses-image">
@@ -104,7 +125,7 @@
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 car-item" data-brand="Volkswagen" data-body-type="Hatchback" data-transmission="Manual">
                          <div class="courses-thumb courses-thumb-secondary">
                               <div class="courses-top">
                                    <div class="courses-image">
@@ -116,7 +137,7 @@
                                    <h3>Golf R</h3>
                                    <p class="lead"><small>od</small> <strong>700zł</strong> <small> </small></p>
                                    <p>cena netto/doba przy min 30 dniach</p>
-                                   <p><img src="images/acceleration.svg" alt="">4,7 s do 100 km/h <a class="tab"> </a> <img src="images/gearshift.webp" alt=""> Auto</p>
+                                   <p><img src="images/acceleration.svg" alt="">4,7 s do 100 km/h <a class="tab"> </a> <img src="images/gearshift.webp" alt=""> Manual</p>
                                    <p><img src="images/power.svg" alt="">320 KM / 420 Nm <a class="tab"> </a> <img src="images/capacity.svg" alt=""> 5</p>
                               </div>
 
@@ -127,7 +148,7 @@
                          </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 car-item" data-brand="Bmw" data-body-type="Sedan" data-transmission="Automatic">
                          <div class="courses-thumb courses-thumb-secondary">
                               <div class="courses-top">
                                    <div class="courses-image">
@@ -136,7 +157,7 @@
                               </div>
 
                               <div class="courses-detail">
-                                   <h3>BMW M5 Competition</a></h3>
+                                   <h3>BMW M5 Competition</h3>
                                    <p class="lead"><small>od</small> <strong>1300</strong> <small></small></p>
                                    <p>cena netto/doba przy min 30 dniach</p>
                                    <p><img src="images/acceleration.svg" alt="">3,3 s do 100 km/h <a class="tab"> </a> <img src="images/gearshift.webp" alt=""> Auto</p>
@@ -232,7 +253,7 @@
                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                          <h4 class="modal-title" id="gridSystemModalLabel">Book Now</h4>
                     </div>
-                    
+
                     <div class="modal-body">
                          <form action="#" id="contact-form">
                               <div class="row">
@@ -281,6 +302,7 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
+
 
 </body>
 </html>
