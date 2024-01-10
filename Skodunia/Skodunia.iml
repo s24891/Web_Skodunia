@@ -190,4 +190,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.testcontainers:database-commons:1.18.3" level="project" />
     <orderEntry type="library" name="Maven: jakarta.persistence:jakarta.persistence-api:2.2.3" level="project" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="d27c23b0-ac9c-470a-bf1c-f97c0a1cd25c" />
+  </component>
 </module>

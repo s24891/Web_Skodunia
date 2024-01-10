@@ -1,26 +1,33 @@
-package pl.rental.skodunia;
+package pl.rental.skodunia.car.model;
+
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String make;
-    private String model;
-    private int year;
-    private boolean isAvailable;
-    private int pricePerDay;
+    Long id;
+
+    String make;
+    String model;
+    String description;
+    int year;
+    int pricePerDay;
 }
