@@ -1,12 +1,15 @@
 --liquibase formatted sql
 --changeset alopalka:1
 --comment: 2024-01-10
+--dbms: h2
 
-CREATE TABLE CAR
+create table cars
 (
-    id          INT PRIMARY KEY NOT NULL,
-    make        TEXT,
-    model       TEXT,
-    year        INT,
-    pricePerDay INT
+    id               bigint not null AUTO_INCREMENT,
+    make             varchar(255),
+    model            varchar(255),
+    description      varchar(255),
+    manufacture_year integer,
+    pricePerDay      integer,
+    primary key (id)
 );
