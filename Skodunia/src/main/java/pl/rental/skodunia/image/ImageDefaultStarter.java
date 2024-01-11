@@ -32,7 +32,7 @@ public class ImageDefaultStarter {
         preInit();
         log.info("Initializing loading of images for cars....");
 
-        String pattern = "classpath:/templates/images/car_img/*.jpg";
+        String pattern = "classpath:/static/images/car_img/*.jpg";
         try {
             Resource[] resources = ResourcePatternUtils.getResourcePatternResolver(resourceLoader)
                     .getResources(pattern);
