@@ -10,6 +10,6 @@ create table cars
     model            varchar(255),
     description      varchar(255),
     manufacture_year integer,
-    pricePerDay      integer,
+    price_per_day      integer,
     primary key (id)
 );

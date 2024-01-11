@@ -3,7 +3,7 @@
 --comment: 2024-01-10
 --dbms: h2
 
-insert into cars (id, make, model, description, manufacture_year, pricePerDay)
+insert into cars (id, make, model, description, manufacture_year, price_per_day)
 values (1, 'Mercedes', 'S-Class', 'Opis Mercedesa', 2020, 500),
        (2, 'BMW', '7 Series', 'Opis BMW', 2019, 450),
        (3, 'Audi', 'A8', 'Opis Audi', 2021, 480),

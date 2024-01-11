@@ -38,7 +38,7 @@ public class Car {
     String make;
     String model;
     String description;
-    int manufacture_year;
+    int manufactureYear;
     int pricePerDay;
 
     // eager = n+1
