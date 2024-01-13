@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import pl.rental.skodunia.car.model.Car;
 
 import java.util.List;
@@ -38,7 +39,15 @@ public class CarController {
                 ));
 
         model.addAttribute("randomImagesMap", randomImagesMap);
-
         return "fleet";
     }
+
+    @GetMapping("/car/data/{id}")
+    public String carDetails(Model model, @PathVariable Long id) {
+        Car car = carService.findById(id);
+        model.addAttribute("carDetails", car);
+        return "details-car";
+    }
+
+
 }

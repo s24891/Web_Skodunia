@@ -18,8 +18,6 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
-
-
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -78,7 +76,7 @@
                     <div class="courses-top">
                         <div class="courses-image">
                             <img th:src="@{/images/{imageId}(imageId=${randomImagesMap[car.id]})}"
-                                 class="res-image"  th:alt="${car.make + ' ' + car.model}">
+                                 class="res-image" th:alt="${car.make + ' ' + car.model}">
                         </div>
                     </div>
 
@@ -233,7 +231,6 @@
 <script src="js/owl.carousel.min.js}"></script>
 <script src="js/smoothscroll.js}"></script>
 <script src="js/custom.js}"></script>
-
 
 
 </body>
