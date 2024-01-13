@@ -71,14 +71,14 @@
 
 <section class="section-background">
     <div class="container">
-        <div class="row" th:each="car: ${availableCars}">
+        <div class="row">
             <div class="col-md-4 col-sm-4 car-item" data-brand="Porsche" data-body-type="Coupe"
-                 data-transmission="Automatic">
+                 data-transmission="Automatic" th:each="car: ${availableCars}">
                 <div>
                     <div class="courses-top">
                         <div class="courses-image">
                             <img th:src="@{/images/{imageId}(imageId=${randomImagesMap[car.id]})}"
-                                 class="img-responsive" th:alt="${car.make + ' ' + car.model}">
+                                 class="res-image"  th:alt="${car.make + ' ' + car.model}">
                         </div>
                     </div>
 
@@ -228,11 +228,12 @@
 </div>
 
 <!-- SCRIPTS -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="js/jquery.js}"></script>
+<script src="js/bootstrap.min.js}"></script>
+<script src="js/owl.carousel.min.js}"></script>
+<script src="js/smoothscroll.js}"></script>
+<script src="js/custom.js}"></script>
+
 
 
 </body>
