@@ -16,5 +16,10 @@ public class MainController {
         return "contact";
     }
 
+    @GetMapping("/about")
+    public String about() {
+        return "about-us";
+    }
+
 
 }

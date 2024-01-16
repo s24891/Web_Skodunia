@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 
      <title>Skodunia | Wypożyczalnia ekskluzywnych samochodów</title>
@@ -11,25 +11,18 @@
      <meta name="author" content="">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-     <link rel="stylesheet" href="../static/css/owl.carousel.css">
-     <link rel="stylesheet" href="../static/css/owl.theme.default.min.css">
+     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+     <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+     <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
 
      <!-- MAIN CSS -->
-     <link rel="stylesheet" href="../static/css/style.css">
+     <link rel="stylesheet" th:href="@{/css/style.css}">
 
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
-     <!-- PRE LOADER -->
-     <section class="preloader">
-          <div class="spinner">
 
-               <span class="spinner-rotate"></span>
-               
-          </div>
-     </section>
 
 
      <!-- MENU -->
@@ -44,15 +37,15 @@
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="index.html" class="navbar-brand">Skodunia</a>
+                    <a href="/index" class="navbar-brand">Skodunia</a>
                </div>
 
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
-                         <li><a href="fleet.html">Samochody</a></li>
-                         <li><a href="about-us.html">O nas</a></li>
-                         <li class="active"><a href="contact.html">Kontakt</a></li>
+                         <li><a href="/car/fleet">Samochody</a></li>
+                         <li><a href="/about">O nas</a></li>
+                         <li class="active"><a href="/contact">Kontakt</a></li>
                          <li>
                               <div class="courses-info">
                                    <button type="button" data-toggle="modal" data-target=".bs-example-modal" class="section-btn btn btn-primary btn-block">Zaloguj się</button>
