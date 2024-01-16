@@ -61,7 +61,7 @@
      <section>
           <div class="container">
                <div class="text-center">
-                    <h1 th:text="${carDetails.make}"/>
+                    <h1 th:text="${carDetails.make + ' ' + carDetails.model}"/>
                </div>
 
                <div class="navbar-details-cars">
@@ -77,15 +77,10 @@
                </div>
 
                <div id="description" class="description">
-
-
                     <h3>Opis</h3>
 
                     <p th:text="${carDetails.description}"/>
 
-                    <p><strong>Porsche 911 zna każdy</strong>, kto wie, że samochody mają cztery koła. Wersję GT3 kojarzą już raczej fani i ci, co lubią jeździć z punktu A do B przez C. To lżejsza, bardziej ekstremalna wersja 911, wyposażona w mocniejszy, ale wolnossący silnik.</p>
-
-                    <p>Auto, którym prosto z publicznej drogi możecie pojechać na tor i wykręcić znakomity czas okrążenia. GT3 jeszcze nigdy nie było tak blisko motorsportu i wyczynowych wersji. Jest tu kompletnie nowe zawieszenie przedniej osi, udoskonalona aerodynamika, silnik, który oczywiści pozostał wolnossący i mnóstwo innych detali, którymi nie będą was zanudzać. To, że nowe GT3 jest bardzo szybkie było wiadome już od jakiegoś czasu – pokonało tor Nurburgring poniżej 7 minut. Jednak żadne dane techniczne czy czasy przejazdu nie wyrażą tego co poczujecie za kierownicą tego auta.</p>
                </div>
 
                <div id="specifications" class="specifications">
@@ -157,14 +152,12 @@
                     <h3>Galeria zdjęć</h3>
 
                     <div class="image">
-                         <img src="/images/details-car1-porsche911gt3_1.webp" width="568" height="300">
-                         <img src="/images/details-car1-porsche911gt3_2.jpg" width="568" height="300">
+                         <img th:src="@{/images/{imageId}(imageId=${carImageId})}"/>
                     </div>
                </div>
 
 
                <div id="price" class="price">
-
 
                     <h3>Cennik</h3>
                     <table>

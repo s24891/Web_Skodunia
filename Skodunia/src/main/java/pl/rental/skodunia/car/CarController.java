@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.rental.skodunia.car.model.Car;
+import pl.rental.skodunia.image.model.Image;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -45,9 +48,14 @@ public class CarController {
     @GetMapping("/car/data/{id}")
     public String carDetails(Model model, @PathVariable Long id) {
         Car car = carService.findById(id);
+        Long carImageId = Optional.ofNullable(car.getImages())
+                .flatMap(images -> images.stream().findFirst())
+                .map(Image::getId)
+                .orElse(1L);
+
         model.addAttribute("carDetails", car);
+        model.addAttribute("carImageId", carImageId);
         return "details-car";
     }
-
 
 }
