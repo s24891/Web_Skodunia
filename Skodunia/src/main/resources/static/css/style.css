@@ -7,6 +7,7 @@
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     padding-top: 70px;
+    height: 100%;
   }
 
 
@@ -56,6 +57,7 @@
 
   html{
     -webkit-font-smoothing: antialiased;
+    height: 100%;
   }
 
   a {
@@ -272,6 +274,7 @@
     padding: 12px 0;
     margin-bottom: 0;
     padding: 0;
+    height: 75px;
   }
 
   .custom-navbar .navbar-brand {
@@ -1023,10 +1026,11 @@
     padding: 0;
     overflow: hidden;
     background-color: whitesmoke;
+    text-align: center;
   }
 
   .navbar-details-cars li {
-    float: left;
+    display: inline-block;
   }
 
   .navbar-details-cars li a {
@@ -1054,6 +1058,7 @@
     scroll-behavior: smooth;
     scroll-padding: 13rem;
   }
+
 
   .description h3 {
     font-size: 30px;
@@ -1142,12 +1147,15 @@
 
   .imgbox {
     display: grid;
-    height: 100%;
+    object-fit: cover;
   }
   .picture-fit {
     max-width: 100%;
     max-height: 100vh;
     margin: auto;
+    width: 1600px;
+    height: 500px;
+    object-fit: cover;
   }
 
   .filter-menu {
@@ -1199,14 +1207,43 @@
   }
 
   .image {
-    max-width: 100%;
-    background-size: cover;
+    margin: auto;
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
   }
 
   .res-image {
     width: 370px;
     height: 250px;
+    object-fit: cover;
   }
+
+  .res-btn {
+    width: 275px;
+    margin-top: 25px;
+  }
+
+  .text-left a {
+    color: #29ca8e;
+  }
+
+  .text-left a:hover {
+    color: forestgreen;
+  }
+
+ .courses-detail strong {
+   color: #29ca8e;
+ }
+
+ .nav-btn {
+   color: #29ca8e;
+   margin-top: 10px;
+   margin-left: 50px;
+ }
+
+
+
 
 
 

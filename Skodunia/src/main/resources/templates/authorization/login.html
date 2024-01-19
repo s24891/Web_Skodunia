@@ -21,68 +21,85 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Registration and Login System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <!-- lOGO TEXT HERE -->
+            <a href="/index" class="navbar-brand">Skodunia</a>
+        </div>
     </div>
-</nav>
-<br />
-<br />
-<br />
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div th:if="${param.error}">
-                <div class="alert alert-danger">Invalid Email and Password.</div>
-            </div>
-            <div th:if="${param.logout}">
-                <div class="alert alert-success">You have been logged out.</div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-center">Login Form</h3>
+</section>
+
+<div class="container h-100 d-flex flex-column">
+
+    <section class="row h-25">
+
+    </section>
+
+
+
+    <section class="section-background">
+        <div class="row flex-grow-1">
+            <div class="col-md-6 col-md-offset-3 col-sm-6 col">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Nieprawidlowy e-mail lub haslo.</div>
                 </div>
-                <div class="card-body">
-                    <form
-                            method="post"
-                            th:action="@{/login}"
-                            class="form-horizontal"
-                            role="form"
-                    >
-                        <div class="mb-3">
-                            <label for="username" class="control-label">Email *</label>
-                            <input type="text"
-                                   id="username"
-                                   name="username"
-                                   class="form-control"
-                                   placeholder="Email"
-                            />
-                        </div>
+                <div th:if="${param.logout}">
+                    <div class="alert alert-success">Zostales zalogowany.</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Zaloguj się</h2>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="password" class="control-label">Password *</label>
-                            <input type="password"
-                                   id="password"
-                                   name="password"
-                                   class="form-control"
-                                   placeholder="Password"
-                            />
-                        </div>
+                    <div class="card-body">
+                        <form
+                                method="post"
+                                th:action="@{/login}"
+                                class="form-horizontal"
+                                role="form">
 
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                            <span> Not registered?
-                            <a th:href="@{/register}"> Register/SignUp Here</a>
-                        </span>
-                        </div>
-                    </form>
+                            <div class="mb-3">
+                                <label for="username" class="control-label">E-mail *</label>
+                                <input type="text"
+                                       id="username"
+                                       name="username"
+                                       class="form-control"
+                                       placeholder="E-mail"/>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="password" class="control-label">Haslo *</label>
+                                <input type="password"
+                                       id="password"
+                                       name="password"
+                                       class="form-control"
+                                       placeholder="Haslo"
+                                />
+                            </div>
+
+                            <div class="mb-3 col-md-offset-3">
+                                <button type="submit" class="section-btn btn btn-primary btn-block res-btn">Zaloguj się</button>
+                            </div>
+                            <span class="text-left"><br> Nie masz konta?
+                                <a th:href="@{/register}"> Zarejestruj się</a>
+                            </span>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
+
 </body>
 </html>
