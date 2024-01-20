@@ -1,13 +1,11 @@
-package pl.rental.skodunia.car.model;
+package pl.rental.skodunia.rental.model;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -16,11 +14,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import pl.rental.skodunia.image.model.Image;
-import pl.rental.skodunia.rental.model.Rental;
+import pl.rental.skodunia.authorization.model.User;
+import pl.rental.skodunia.car.model.Car;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,23 +25,22 @@ import java.util.List;
 @Setter
 @Entity
 @Builder
-@Table(name = "cars")
+@Table(name = "rentals")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Car {
+public class Rental {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    LocalDateTime dateFrom;
+    LocalDateTime dateTo;
 
-    String make;
-    String model;
-    String description;
-    int manufactureYear;
-    int pricePerDay;
-
-    // eager = n+1
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "car_id")
-    List<Image> images = new ArrayList<>();
+    Car car;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    User user;
 
 }

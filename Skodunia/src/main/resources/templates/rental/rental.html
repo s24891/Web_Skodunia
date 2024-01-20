@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Skodunia | Wypożyczalnia ekskluzywnych samochodów</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Dodatkowe style CSS dla kalendarza -->
+    <style>
+        #datepicker {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .ui-datepicker {
+            width: 100%; /* Szerokość kalendarza */
+            padding: 10px;
+            background: #ffffff;
+            border: 1px solid #dddddd;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+        .ui-datepicker .ui-datepicker-header {
+            background: #f7f7f7;
+            border-bottom: 1px solid #dddddd;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .ui-datepicker .ui-state-default {
+            border: 1px solid #dddddd;
+            padding: 5px;
+            text-align: center;
+        }
+        .ui-datepicker .ui-state-highlight {
+            background: #ff0;
+            color: #000;
+        }
+        .ui-datepicker .ui-datepicker-buttonpane {
+            background: #f7f7f7;
+            border-top: 1px solid #dddddd;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .picture-fit {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Wybrany samochód</h3>
+            <div>
+                <img class="picture-fit" th:src="@{/images/{imageId}(imageId=${carImageId})}" alt="Obraz samochodu"/>
+                <h4 th:text="${chosenCar.make + ' ' + chosenCar.model}"/>
+                <div>Cena za x dni: xx.00 PLN brutto</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3>Kalendarz rezerwacji</h3>
+            <div id="datepicker"></div>
+            <form id="reservationForm" th:action="@{/rental}" method="post">
+                <input type="hidden" id="startDate" name="startDate" value=""/>
+                <input type="hidden" id="endDate" name="endDate" value=""/>
+                <input type="hidden" id="carId" name="carId" th:value="${chosenCar.id}"/>
+                <button type="submit" id="reserveButton" class="btn btn-success">Zarezerwuj</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(function() {
+        var startDate;
+        var endDate;
+        $("#datepicker").datepicker({
+            onSelect: function(dateText, inst) {
+                var date = $(this).datepicker('getDate');
+                if (!startDate || startDate > date) {
+                    startDate = date;
+                    endDate = null;
+                } else {
+                    endDate = date;
+                }
+                updateRange();
+            },
+            beforeShowDay: function(date) {
+                var cssClass = '';
+                if(date >= startDate && date <= endDate) cssClass = 'ui-state-highlight';
+                return [true, cssClass];
+            },
+            numberOfMonths: 1,
+            showButtonPanel: true
+        });
+
+        function updateRange() {
+            $("#datepicker").datepicker('refresh');
+            if (startDate) {
+                $('#startDate').val($.datepicker.formatDate('yy-mm-dd', startDate));
+            }
+            if (endDate) {
+                $('#endDate').val($.datepicker.formatDate('yy-mm-dd', endDate));
+            }
+        }
+
+        $('#reservationForm').submit(function() {
+            if (!startDate || !endDate) {
+                alert('Proszę wybrać daty rozpoczęcia i zakończenia wynajmu.');
+                return false; // Zatrzymaj wysyłanie formularza
+            }
+            // Dodatkowa walidacja lub logika przed wysłaniem
+            console.log("Formularz wysłany z datami: " + $('#startDate').val() + " - " + $('#endDate').val());
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
