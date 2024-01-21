@@ -36,5 +36,9 @@ public class RentalService {
                         .build()
         );
     }
+
+    public List<Rental> findAllRentalsByUser(User user) {
+        return rentalRepository.findAllByUser(user);
+    }
 }
 

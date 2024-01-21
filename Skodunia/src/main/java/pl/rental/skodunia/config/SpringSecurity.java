@@ -30,7 +30,8 @@ public class SpringSecurity {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**", "/index", "/", "/about", "/contact").permitAll()
-                                .requestMatchers("/", "/images/**", "/index", "/car/**", "/rental/**").permitAll()
+                                //todo napraic /**
+                                .requestMatchers("/**", "/images/**", "/index", "/car/**", "/rental/**","/user/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/fonts/**", "/h2-console/**").permitAll()
                                 .requestMatchers("/h2", "/h2/**").permitAll()
                                 .requestMatchers("/users").hasRole("ADMIN")

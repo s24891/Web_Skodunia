@@ -88,9 +88,7 @@
                     <div class="courses-info">
                         <a class="section-btn btn btn-primary btn-block" th:href="@{/car/data/{id}(id=${car.id})}">Szczegóły
                         </a>
-                        <button type="button" data-toggle="modal" data-target=".bs-example-modal"
-                                class="section-btn btn btn-primary btn-block">Zarezerwuj
-                        </button>
+                        <a class="section-btn btn btn-primary btn-block" th:href="@{/rental/panel/{id}(id=${car.id})}">Zarezerwuj</a>
                     </div>
                 </div>
             </div>

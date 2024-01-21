@@ -47,4 +47,6 @@ public class Car {
     @JoinColumn(name = "car_id")
     List<Image> images = new ArrayList<>();
 
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Rental> rentals = new ArrayList<>();
 }

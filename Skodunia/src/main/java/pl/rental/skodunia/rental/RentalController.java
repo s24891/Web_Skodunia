@@ -16,7 +16,6 @@ import pl.rental.skodunia.authorization.model.User;
 import pl.rental.skodunia.car.CarRepository;
 import pl.rental.skodunia.car.model.Car;
 import pl.rental.skodunia.image.model.Image;
-import pl.rental.skodunia.rental.model.Rental;
 
 import java.security.Principal;
 import java.time.LocalDate;
@@ -61,6 +60,6 @@ public class RentalController {
         rentalService.createRental(car, startDate, endDate, user); // przekaż znalezionego użytkownika
 
         redirectAttributes.addFlashAttribute("successMessage", "Samochód został zarezerwowany.");
-        return "redirect:/rental/confirmation";
+        return "redirect:/user/user-details.html";
     }
 }

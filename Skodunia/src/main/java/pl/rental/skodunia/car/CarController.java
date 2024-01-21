@@ -42,7 +42,7 @@ public class CarController {
                 ));
 
         model.addAttribute("randomImagesMap", randomImagesMap);
-        return "fleet";
+        return "car/fleet";
     }
 
     @GetMapping("/car/data/{id}")
@@ -55,7 +55,7 @@ public class CarController {
 
         model.addAttribute("carDetails", car);
         model.addAttribute("carImageId", carImageId);
-        return "details-car";
+        return "car/details-car";
     }
 
 }

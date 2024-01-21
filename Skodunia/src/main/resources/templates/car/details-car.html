@@ -64,13 +64,13 @@
 
                <div class="navbar-details-cars">
                     <ul>
-                         <li><a href="#top"><img src="/images/up_arrow.png"></a></li>
+                         <li><a href="#top"><img th:src="@{/image/up_arrow.png}"></a></li>
                          <li><a href="#description">Opis</a></li>
                          <li><a href="#specifications">Dane techniczne</a></li>
                          <li><a href="#gear">Wyposażenie</a></li>
                          <li><a href="#pictures">Galeria</a></li>
                          <li><a href="#price">Cennik</a></li>
-                         <li><a href="#">Zarezerwuj</a></li>
+                         <li><a th:href="@{/rental/panel/{id}(id=${carDetails.id})}">Zarezerwuj</a></li>
                     </ul>
                </div>
 
