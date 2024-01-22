@@ -1242,6 +1242,24 @@
    margin-left: 50px;
  }
 
+  .rental-info {
+    background-color: white;
+    height: 550px;
+    border-radius: 20px;
+  }
+
+  .rental-text {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+
+  .rental-btn {
+    float: right;
+    margin-top: 20px;
+    margin-right: 65px;
+    padding-bottom: 50px;
+  }
+
 
 
 
@@ -1256,10 +1274,12 @@
   .team-thumb-actions { padding: 10px; border-top: 1px solid rgba(0,0,0,.05); }
 
   .section-btn.btn-primary { border-color: #29ca8e; color: #29ca8e; }
+  .section-btn.btn-success { border-color: #29ca8e; color: #29ca8e; }
   .section-btn.btn-primary:focus,
   .section-btn.btn-primary:active,
   .section-btn.btn-primary:focus:active,
   .section-btn.btn-primary:hover {background: #29ca8e; color: #fff; border-color: #29ca8e; }
+  .section-btn.btn-success:hover {background: #29ca8e; color: #fff; border-color: #29ca8e; }
 
   .courses-thumb .lead,
   .team-info .lead { margin-bottom: 10px; }

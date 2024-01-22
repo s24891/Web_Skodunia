@@ -22,15 +22,13 @@
     <!-- jQuery UI CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <!-- Dodatkowe style CSS dla kalendarza -->
     <style>
+
         #datepicker {
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
         .ui-datepicker {
             width: 100%; /* Szerokość kalendarza */
-            padding: 10px;
             background: #ffffff;
             border: 1px solid #dddddd;
             box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
@@ -47,7 +45,7 @@
             text-align: center;
         }
         .ui-datepicker .ui-state-highlight {
-            background: #ff0;
+            background:  #29ca8e;
             color: #000;
         }
         .ui-datepicker .ui-datepicker-buttonpane {
@@ -62,34 +60,96 @@
             display: block;
             margin: 0 auto;
         }
+
+        .ui-widget { font-size: 0.9em; }
+
+
     </style>
 
 </head>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Wybrany samochód</h3>
-            <div>
-                <img class="picture-fit" th:src="@{/images/{imageId}(imageId=${carImageId})}" alt="Obraz samochodu"/>
-                <h4 th:text="${chosenCar.make + ' ' + chosenCar.model}"/>
-                <div>Cena za x dni: xx.00 PLN brutto</div>
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <!-- lOGO TEXT HERE -->
+            <a href="/index" class="navbar-brand">Skodunia</a>
+        </div>
+
+        <!-- MENU LINKS -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-first">
+                <li class="active"></li>
+                <li><a href="/car/fleet">Samochody</a></li>
+                <li><a href="/about">O nas</a></li>
+                <li><a href="/contact">Kontakt</a></li>
+            </ul>
+            <div class="nav-btn">
+                <a class="section-btn btn btn-primary" role="button" href="/login">Zaloguj sie
+                </a>
             </div>
         </div>
-        <div class="col-md-6">
-            <h3>Kalendarz rezerwacji</h3>
-            <div id="datepicker"></div>
-            <form id="reservationForm" th:action="@{/rental}" method="post">
-                <input type="hidden" id="startDate" name="startDate" value=""/>
-                <input type="hidden" id="endDate" name="endDate" value=""/>
-                <input type="hidden" id="carId" name="carId" th:value="${chosenCar.id}"/>
-                <button type="submit" id="reserveButton" class="btn btn-success">Zarezerwuj</button>
-            </form>
+    </div>
+
+</section>
+
+<section class="section-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="courses-detail rental-info">
+                        <h2>Podsumowanie rezerwacji</h2>
+                        <h4>Odbiór</h4>
+                        <p>
+                            Targ Drzewny 9/11, Gdańsk
+                        </p>
+                        <p>
+                            Data odbioru
+                        </p><br>
+                        <h4>Zwrot</h4>
+                        <p>
+                            Targ Drzewny 9/11, Gdańsk
+                        </p>
+                        <p>
+                            Data zwrotu
+                        </p><br>
+                        <h4>Łączny koszt za x dni</h4>
+                        <h2><strong>ileś zł</strong></h2>
+                    </div>
+                </div>
+                <div class="col-md-9 rental-info">
+                    <h3 style="margin-left: 110px">Wybrany samochód</h3>
+                    <div class="col-md-6">
+                        <img class="res-image" th:src="@{/images/{imageId}(imageId=${carImageId})}" alt="Obraz samochodu"/>
+                        <h3 class="text-center" style="padding-top: 10px" th:text="${chosenCar.make + ' ' + chosenCar.model}"/>
+                        <p class="text-center rental-text">Cena za x dni: xx.00 PLN brutto</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="datepicker"></div>
+                        <form id="reservationForm" th:action="@{/rental}" method="post">
+                            <input type="hidden" id="startDate" name="startDate" value=""/>
+                            <input type="hidden" id="endDate" name="endDate" value=""/>
+                            <input type="hidden" id="carId" name="carId" th:value="${chosenCar.id}"/>
+                            <div class="rental-btn">
+                                <button type="submit" id="reserveButton" class="section-btn btn btn-success btn-block res-btn">Zarezerwuj</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
