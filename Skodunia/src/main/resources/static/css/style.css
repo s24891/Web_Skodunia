@@ -859,22 +859,18 @@
   }
 
   .social-icon li a {
-    border-radius: 100px;
-    color: #29ca8e;
-    font-size: 15px;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.4s ease-in-out;
-    position: relative;
-    margin: 5px 5px 5px 0;
+    top:-50px;
+    left:-35px;
+    display:block;
+    z-index:999;
+    cursor: pointer;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
   }
 
   .social-icon li a:hover {
-    background: #29ca8e;
-    color: #ffffff;
+   transform: scale(1.2);
   }
 
 
@@ -1259,6 +1255,8 @@
     margin-right: 65px;
     padding-bottom: 50px;
   }
+
+
 
 
 
