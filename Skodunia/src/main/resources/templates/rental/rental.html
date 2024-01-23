@@ -48,12 +48,7 @@
             background:  #29ca8e;
             color: #000;
         }
-        .ui-datepicker .ui-datepicker-buttonpane {
-            background: #f7f7f7;
-            border-top: 1px solid #dddddd;
-            padding: 10px 0;
-            text-align: center;
-        }
+
         .picture-fit {
             max-width: 100%;
             height: auto;
@@ -62,6 +57,9 @@
         }
 
         .ui-widget { font-size: 0.9em; }
+
+        .ui-datepicker-current-day .ui-state-active { background: #29ca8e; color: #000; }
+
 
 
     </style>
@@ -174,7 +172,7 @@
                 return [true, cssClass];
             },
             numberOfMonths: 1,
-            showButtonPanel: true
+            showOtherMonths: true,
         });
 
         function updateRange() {
@@ -196,6 +194,48 @@
             console.log("Formularz wysłany z datami: " + $('#startDate').val() + " - " + $('#endDate').val());
         });
     });
+
+
+    ( function( factory ) {
+        "use strict";
+
+        if ( typeof define === "function" && define.amd ) {
+
+
+            define( [ "../widgets/datepicker" ], factory );
+        } else {
+
+
+            factory( jQuery.datepicker );
+        }
+    } )( function( datepicker ) {
+        "use strict";
+
+        datepicker.regional.pl = {
+            closeText: "Zamknij",
+            prevText: "Poprzedni",
+            nextText: "Następny",
+            currentText: "Dziś",
+            monthNames: ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+                "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
+            monthNamesShort: ["Sty", "Lu", "Mar", "Kw", "Maj", "Cze",
+                "Lip", "Sie", "Wrz", "Pa", "Lis", "Gru"],
+            dayNames: ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"],
+            dayNamesShort: ["Nie", "Pn", "Wt", "Śr", "Czw", "Pt", "So"],
+            dayNamesMin: ["N", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
+            weekHeader: "Tydz",
+            dateFormat: "dd.mm.yy",
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ""
+        };
+        datepicker.setDefaults(datepicker.regional.pl);
+
+        return datepicker.regional.pl;
+
+    });
+
 </script>
 
 
